@@ -1,0 +1,24 @@
+\documentclass[varwidth=true, border=2pt]{standalone}
+\usepackage{units}
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\definecolor{mycolor}{RGB}{59, 89, 152}
+\tikzstyle{vertex}=[draw,white,fill=mycolor,circle,minimum size=10pt,inner sep=0pt]
+\tikzstyle{edge}=[very thick]
+\begin{tikzpicture}[scale=2.5]
+    \node (a)[vertex,fill=mycolor,align=left] at (0,0) {$:D~\nicefrac{1}{4}$\\$:\,)~\nicefrac{1}{2}$\\$:\,(~\nicefrac{1}{4}$};
+    
+    \node (b)[vertex,fill=gray,align=left] at (1,0)  {$:D~\nicefrac{1}{4}$\\$:\,)~\nicefrac{1}{4}$\\$:\,(~\nicefrac{1}{2}$};
+
+    \path[thick,->] (a)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$\nicefrac{1}{2}$} (a);
+    
+    \path[thick,->] (b)    edge[loop above, looseness=5] node [anchor=center,above,sloped] {$\nicefrac{3}{4}$} (b);
+    
+    \path[thick,->] (b)    edge node [bend left=80, anchor=center,above,sloped] {$\nicefrac{1}{4}$} (a);
+    
+    \path[thick,->] (a)    edge node [bend left=80, anchor=above,above,sloped] {$\nicefrac{1}{2}$} (b);
+\end{tikzpicture}
+\end{document}
